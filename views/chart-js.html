@@ -1,0 +1,60 @@
+<script>
+    var ctx = document.getElementById('canvas').getContext('2d');
+    var myLineChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            xLabels: window.chart_data.xData,
+            yLabels: window.chart_data.labels,
+            datasets: [{
+                data:  window.chart_data.yData,
+                backgroundColor: "rgb(54, 92, 130)",
+                borderColor: "rgb(54, 92, 130)",
+                borderWidth: 1.5,
+                fill: false,
+            }],
+        },
+        options: {
+            responsive: true,
+            title: {
+                display: false
+            },
+            legend: {
+                display: false
+            },
+            tooltips: {
+                enabled: false
+            },
+            scales: {
+                xAxes: [{
+                    display: true,
+                    gridLines: {
+                        display: false,
+                    },
+                    scaleLabel: {
+                        display: false
+                    }
+                }],
+                yAxes: [{
+                    type: 'category',
+                    display: true,
+                    gridLines: {
+                        display: true,
+                        borderDash: [6, 4],
+                    },
+                    ticks: {
+                        reverse: true
+                    }
+
+                }],
+            },
+            layout: {
+                padding: {
+                    left: 0,
+                    right: 0,
+                    top: 0,
+                    bottom: 0
+                }
+            }
+        }
+    });
+</script>
