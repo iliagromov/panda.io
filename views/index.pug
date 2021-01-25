@@ -1,0 +1,117 @@
+doctype html
+html(lang='ru')
+	meta(charset="utf-8")
+	title index
+	meta(name='viewport', content='width=device-width, initial-scale=1')
+	link(href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet")
+	style.
+		body{
+			margin:0;
+			padding:0;
+		}
+		.content{
+			width: 414px;
+			height: 736px;
+			position: relative;
+			margin: 0 auto;
+		}
+		
+		
+		.iframe{
+			    position: absolute;
+				top: 95px;
+				right: 23px;
+				bottom: -10px;
+				left: 23px;
+				z-index: 1;
+				overflow: hidden;
+
+
+		}
+		iframe{
+			height: 100%;
+			width: 100%;
+			position: absolute;
+		}
+		img{
+			max-width:100%
+		}
+		.content-btns{
+			text-align: center;
+		}
+		button{
+			cursor:pointer;
+			border: none;
+			border-radius: 100%;
+			height: 45px;
+			width: 45px;
+			background: #f6edb7;
+			position: relative;
+			bottom: 77px;
+		}
+		.hidden{
+			display:none;
+		}
+		@media screen and (max-width: 576px){
+			.device{
+				display:none;
+			}
+			.iframe{
+				position: static;
+			}
+			iframe{
+				height: 100vh;
+			}
+			.content{
+				width: 100%;
+			}
+			.content-btns{
+				position: fixed;
+				z-index: 100;
+				width: 100%;
+				bottom: 10px;
+			}
+			button{
+			
+				bottom: 0;
+				border: 2px solid gainsboro;
+			}
+		}
+body
+	.content
+		.device
+			img(src="device.png", alt="")
+		.iframe
+			iframe(src="count.html", frameborder="0")
+		.iframe.hidden
+			iframe(src="content.html", frameborder="0")
+		.iframe.hidden
+			iframe(src="correlation.html", frameborder="0")
+		.iframe.hidden
+			iframe(src="no-data.html", frameborder="0")
+		.iframe.hidden
+			iframe(src="scale.html", frameborder="0")
+		.iframe.hidden
+			iframe(src="chart.html", frameborder="0")
+		.iframe.hidden
+			iframe(src="last.html", frameborder="0")
+		.content-btns
+			button Click
+script.
+	let btn = document.querySelector('button');
+	let iframe = document.querySelectorAll('.iframe');
+	let iItem = 0;
+	btn.addEventListener('click', ()=>{
+		if(!iframe[iItem].classList.contains('hidden')){
+			iframe[iItem].classList.toggle('hidden');
+			if(iframe[iItem].nextElementSibling.classList.contains('hidden')){
+				iframe[iItem].nextElementSibling.classList.toggle('hidden');
+				iItem++;
+			}
+			else{
+				iItem = 0;
+				iframe[iItem].classList.toggle('hidden');
+			}
+		}
+	});
+	

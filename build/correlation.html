@@ -1,22 +1,17 @@
-- var header = "Твое настроение было лучше всего, когда";
-- var correlations = [{ "label":"😔️ 😔️", "tags": [{"name":"Работа", "count": 3},{"name":"Дом", "count": 3},{"name":"👪 Друзья и близ..", "count": 10},{"name":"👪 Дом", "count": 10}] }];
-- var hide = false;
-
-	
-doctype html
-html(lang='ru')
-	meta(charset="utf-8")
-	title Correlations
-	meta(name='viewport', content='width=device-width, initial-scale=1')
-	link(href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet")
-	style.
+<!DOCTYPE html>
+<html lang="ru">
+	<meta charset="utf-8">
+	<title>Correlations</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+	<style>
 		html, body {
 			height: 100%;
 			width: 100%;
 			margin: 0 !important;
 			padding: 0 !important;
 		}
-
+		
 		.container {
 			display: flex;
 			flex-direction: column;
@@ -103,22 +98,27 @@ html(lang='ru')
 			margin: auto auto 5px;
 			color: #FEF8CA;
 		}
-
-body
-	each correlation in correlations
-		div.container
-			h1.header #{header}
-			.content
-				.emoji=correlation.label
-				each correl in correlation.tags
-					if hide
-						.content-title.blur
-							span=correl.name
-							.count-number=correl.count
-								span  раза
-					else
-						.content-title=correl.name
-							.count-number=correl.count
-								span  раза
-			footer Такое делает @pandajournal_bot
-
+		
+	</style>
+</html>
+<body>
+	<div class="container">
+		<h1 class="header">Твое настроение было лучше всего, когда</h1>
+		<div class="content">
+			<div class="emoji">😔️ 😔️</div>
+			<div class="content-title">Работа
+				<div class="count-number">3<span> раза</span></div>
+			</div>
+			<div class="content-title">Дом
+				<div class="count-number">3<span> раза</span></div>
+			</div>
+			<div class="content-title">👪 Друзья и близ..
+				<div class="count-number">10<span> раза</span></div>
+			</div>
+			<div class="content-title">👪 Дом
+				<div class="count-number">10<span> раза</span></div>
+			</div>
+		</div>
+		<footer>Такое делает @pandajournal_bot</footer>
+	</div>
+</body>
