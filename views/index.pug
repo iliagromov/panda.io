@@ -78,25 +78,27 @@ html(lang='ru')
 			}
 		}
 body
-	.content
-		.device
-			img(src="device.png", alt="")
-		.iframe
-			iframe(src="count.html", frameborder="0")
-		.iframe.hidden
-			iframe(src="content.html", frameborder="0")
-		.iframe.hidden
-			iframe(src="correlation.html", frameborder="0")
-		.iframe.hidden
-			iframe(src="no-data.html", frameborder="0")
-		.iframe.hidden
-			iframe(src="scale.html", frameborder="0")
-		.iframe.hidden
-			iframe(src="chart.html", frameborder="0")
-		.iframe.hidden
-			iframe(src="last.html", frameborder="0")
-		.content-btns
-			button Click
+	.preview-wrap
+		.stories-wrap
+			.content
+				.device
+					img(src="device.png", alt="")
+				.iframe
+					iframe(src="count.html", frameborder="0")
+				.iframe.hidden
+					iframe(src="content.html", frameborder="0")
+				.iframe.hidden
+					iframe(src="correlation.html", frameborder="0")
+				.iframe.hidden
+					iframe(src="no-data.html", frameborder="0")
+				.iframe.hidden
+					iframe(src="scale.html", frameborder="0")
+				.iframe.hidden
+					iframe(src="chart.html", frameborder="0")
+				.iframe.hidden
+					iframe(src="last.html", frameborder="0")
+				.content-btns
+					button Click
 script.
 	let btn = document.querySelector('button');
 	let iframe = document.querySelectorAll('.iframe');
