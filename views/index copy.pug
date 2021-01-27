@@ -1,0 +1,176 @@
+doctype html
+html(lang='ru')
+	meta(charset="utf-8")
+	title index
+	meta(name='viewport', content='width=device-width, initial-scale=1')
+	link(href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet")
+	style.
+		body{
+			margin:0;
+			padding:0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			height: 100vh;
+			background: #ccc;
+			overflow: hidden;
+		}
+		.preview-wrap{
+			box-shadow: 0px 0px 15px -2px rgb(0 0 0 / 20%);
+			background: #fff;
+			width: 1024px;
+			min-width: 768px;
+			min-height: 778px;
+			height: 100%;
+		}
+		.stories-wrap{
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.device{
+			width: 414px;
+			height: 736px;
+			position: relative;
+		}
+		.device img{
+			max-width:100%;
+			width: 100%;
+			height: 100%;
+			object-position: center;
+			object-fit: contain;
+			pointer-events: none;
+			position: relative;
+			z-index: 1;
+		}
+		.content{
+			width: 414px;
+			height: 736px;
+			position: relative;
+			margin: 0 auto;
+		}
+		.iframe-wrap{
+			position: absolute;
+			top: 83px;
+			left: 45px;
+			width: 100%;
+			height: 100%;
+			max-width: 324px;
+			max-height: 573px;
+			z-index: 1;
+			overflow: hidden;
+			border-radius: 2px;
+		}
+		.iframe{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+		/*.iframe{
+			    position: absolute;
+				top: 95px;
+				right: 23px;
+				bottom: -10px;
+				left: 23px;
+				z-index: 1;
+				overflow: hidden;
+		}*/
+		iframe{
+			height: 100vh;
+			width: 100%;
+			position: absolute;
+		}
+		
+		.content-btns{
+			text-align: center;
+			position: relative;
+			z-index:100;
+		}
+		button{
+			cursor:pointer;
+			border: none;
+			border-radius: 100%;
+			height: 45px;
+			width: 45px;
+			background: #f6edb7;
+			position: relative;
+			bottom: 67px;
+		}
+		.hidden{
+			display:none;
+		}
+		@media screen and (max-width: 576px){
+			.device{
+				display:none;
+			}
+			.iframe{
+				position: static;
+			}
+			iframe{
+				height: 100vh;
+			}
+			.content{
+				width: 100%;
+			}
+			.content-btns{
+				position: fixed;
+				z-index: 100;
+				width: 100%;
+				bottom: 10px;
+			}
+			button{
+			
+				bottom: 0;
+				border: 2px solid gainsboro;
+			}
+		}
+body
+	.preview-wrap
+		.stories-wrap
+			.content
+				.device
+					img(src="device.png", alt="")
+				.iframe-wrap
+						.iframe
+							iframe(src="count.html", frameborder="0")
+						.iframe.hidden
+							iframe(src="content.html", frameborder="0")
+						.iframe.hidden
+							iframe(src="correlation.html", frameborder="0")
+						.iframe.hidden
+							iframe(src="no-data.html", frameborder="0")
+						.iframe.hidden
+							iframe(src="scale.html", frameborder="0")
+						.iframe.hidden
+							iframe(src="chart.html", frameborder="0")
+						.iframe.hidden
+							iframe(src="last.html", frameborder="0")
+				.content-btns
+					button Click
+script.
+	let btn = document.querySelector('button');
+	let iframe = document.querySelectorAll('.iframe');
+	let iItem = 0;
+	btn.addEventListener('click', ()=>{
+		if(!iframe[iItem].classList.contains('hidden')){
+			iframe[iItem].classList.toggle('hidden');
+			if(iframe[iItem].nextElementSibling){
+				if(iframe[iItem].nextElementSibling.classList.contains('hidden')){
+					iframe[iItem].nextElementSibling.classList.toggle('hidden');
+					iItem++;
+				}
+			}
+			
+			else{
+				iItem = 0;
+				iframe[iItem].classList.toggle('hidden');
+			}
+		}
+	});
+	
